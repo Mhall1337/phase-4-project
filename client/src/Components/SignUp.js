@@ -23,6 +23,8 @@ function SignUpForm() {
   }
 
   return (
+  <div>
+      <h3>Sign Up</h3>
     <form onSubmit={handleSubmit}>
       <label>Username</label>
       <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}></input>
@@ -32,6 +34,7 @@ function SignUpForm() {
       <input type="password" id="password_confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}></input>
       <input type="submit"></input>
     </form>
+  </div>
   );
 }
 
