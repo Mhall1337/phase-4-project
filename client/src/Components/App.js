@@ -1,11 +1,13 @@
-
 import Home from './Home'
 import { Route, Switch } from "react-router-dom";
 import ToDos from './ToDos';
 import Login from './Login';
 import NavBar from './NavBar';
 
+
 function App() {
+  
+
   return (
     <div>
     <NavBar />

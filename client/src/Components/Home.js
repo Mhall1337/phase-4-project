@@ -1,11 +1,12 @@
-import ToDos from "./ToDos"
 import Motivations from "./Motivations"
+import SignUpForm from "./SignUp";
 
-function Home(){
+function Home({onLogin}){
     return (
         <div>
             <h1>Home</h1>
             <Motivations />
+            <SignUpForm onLogin={onLogin}/>
         </div>
     )
 }
