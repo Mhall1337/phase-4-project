@@ -4,13 +4,14 @@ function Login(){
           <h1>Login</h1>
           <form>
             <div>
-              <input type="text" name="username" placeholder="Username" />
+              <input type="text" id="username" placeholder="Username" />
             </div>
             <div>
-              <input type="password" name="password" placeholder="Password" />
+              <input type="password" id="password" placeholder="Password" />
             </div>
             <input type="submit" value="Submit" />
           </form>
+          <div>or signup? add</div>
         </div>
       );
 }

@@ -1,6 +1,7 @@
 function ToDos(){
+
     return(
-        <h1>ToDos</h1>
+        <h1>To-Dos</h1>
     )
 }
 export default ToDos

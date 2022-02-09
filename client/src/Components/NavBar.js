@@ -1,4 +1,4 @@
-import React from "react";
+//import React from "react";
 import { NavLink } from "react-router-dom";
 
 const linkStyles = {
@@ -43,6 +43,16 @@ function NavBar() {
         }}
       >
         Login
+      </NavLink>
+      <NavLink
+      to="/signup"
+      exact
+      style={linkStyles}
+      activeStyle={{
+          background: "darkblue",
+        }}
+      >
+        Sign Up
       </NavLink>
     </div>
   );

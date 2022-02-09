@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-function SignUpForm() {
+function SignUpForm({setUser}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-
+  const history = useHistory()
   
   function handleSubmit(e) {
     e.preventDefault();
@@ -19,7 +20,14 @@ function SignUpForm() {
         password_confirmation: passwordConfirmation
       }),
     }).then(r => r.json())
-    .then(r =>  console.log(r)/*set response to state*/)
+    .then(user =>  {
+        setUser(user)
+        setUsername("")
+        setPassword("")
+        setPasswordConfirmation("")
+        history.push("/")
+    })
+   
   }
 
   return (
