@@ -1,25 +1,33 @@
 import { useEffect, useState } from "react"
 
-function ToDos(){
-    const [tasks, setTasks] = useState(null)
+function ToDos() {
+    const [tasks, setTasks] = useState([])
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch('/to_dos')
-        .then(r => r.json())
-        .then(r => setTasks([r]))
-    },[])
-    if(tasks){
-    return(
-        <div>
-          <h1>To-Dos</h1>
-          <ul>{
-            tasks.map((task, index)=> {
-            return<li key={index}>{task.to_do}</li>
+            .then(r => {
+                if (r.ok) {
+                    return r.json().then(r => setTasks([r]))
+                }
             })
-            }</ul>
-        </div>
-    )}else{
-        return(<div>Create Task</div>)
+    }, [])
+    function addTask(e) {
+        e.preventDefault()
+        fetch("")
     }
+    return (
+        <div>
+            <h3>Log In</h3>
+            <form onSubmit={addTask}>
+                <label>Task</label>
+                <input type="text" id="username" value={username}></input>
+                <label>Password:</label>
+                <input type="password" id="password" value={password}></input>
+                <input type="submit"></input>
+            </form>
+            <br></br>
+            <div>Not A Current User?<button onClick={() => history.push("/signup")}>Sign Up!</button></div>
+        </div>
+    )
 }
 export default ToDos

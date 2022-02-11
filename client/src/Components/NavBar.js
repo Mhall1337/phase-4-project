@@ -45,16 +45,6 @@ function NavBar({user}) {
       >
         Login / Log Out
       </NavLink>
-      {/* <NavLink
-      to="/signup"
-      exact
-      style={linkStyles}
-      activeStyle={{
-          background: "darkblue",
-        }}
-      >
-        Sign Up
-      </NavLink> */}
     </div>
   );}else{
     return(
