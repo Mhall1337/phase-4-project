@@ -1,6 +1,7 @@
 class ToDosController < ApplicationController
     def index
-        todos = ToDo.find_by(user_id: session[:user_id]) 
+        user = User.find_by(id: session[:user_id])
+        todos = user.to_dos
         render json: todos
     end
     def show
@@ -10,6 +11,7 @@ class ToDosController < ApplicationController
     def create
         user = User.find_by(id: session[:user_id])
         todo = user.to_dos.create(to_do_params)
+        todo.save
         render json: todo, status: :created
     end
 

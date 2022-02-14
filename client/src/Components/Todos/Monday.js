@@ -1,9 +1,10 @@
-function Monday(){
+function Monday({tasks}){
+    let monday = tasks.filter(task => task.date_due === "Monday")
     return(
         <div>
-          <h1>To-Dos</h1>
+          <h1>Monday</h1>
           <ul>{
-            tasks.map((task, index)=> {
+            monday.map((task, index)=> {
             return<li key={index}>{task.to_do}</li>
             })
             }</ul>
