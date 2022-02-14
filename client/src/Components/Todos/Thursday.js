@@ -2,7 +2,7 @@ function Thursday({tasks}){
     let thursday = tasks.filter(task => task.date_due === "Thursday")
   
     return(
-        <div>
+        <div className="day">
           <h1>Thursday</h1>
           <ul>{
             thursday.map((task, index)=> {

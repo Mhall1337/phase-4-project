@@ -36,7 +36,6 @@ function ToDos() {
         }).then(r => {
             if (r.ok) {
                 return r.json().then((r) => {
-
                     setTasks([r, ...tasks])
                 })
             }
@@ -46,7 +45,7 @@ function ToDos() {
         })
     }
     return (
-        <div>
+        <div className="todos">
             <h3>Tasks For The Week</h3>
             <form onSubmit={addTask}>
                 <label>Task</label>
