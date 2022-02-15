@@ -13,7 +13,6 @@ code {
 }
 .day{
   background-color: white;
-  padding: 10px;
   width: 300px;
   padding: 12px;
   margin: 6px 6px 6px;
@@ -23,14 +22,33 @@ code {
 .todosContainer{
   display: flex;
   flex-wrap: wrap;
-  flex-direction:column;
+  /* flex-direction:column; */
   justify-content: center;
   align-items: center;
 }
-
+/* .column {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+} */
 .home {
   text-align: center;
 }
 .home-image{
   width: 500px;
+}
+.todo_form{
+  width: 100%;
+  text-align: center;
+}
+.sunday{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center
+}
+#root > div > div.todosContainer > div.sunday > div{
+  width: 636px;
 }

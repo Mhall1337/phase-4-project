@@ -53,8 +53,8 @@ function ToDos() {
     }
     return (
         <div className="todosContainer">
-            <h3>Tasks For The Week</h3>
-            <form onSubmit={addTask}>
+            <h3 className="todo_header">Tasks For The Week</h3>
+            <form onSubmit={addTask} className="todo_form">
                 <label>Task</label>
                 <input type="text" id="to_do" value={to_do} onChange={e => setTo_Do(e.target.value)} style={{width:250}}></input>
                 <label>Day:</label>
@@ -69,9 +69,14 @@ function ToDos() {
                 </select>
                 <input type="submit"></input>
             </form>
-            <Monday tasks={tasks} deleteTask={deleteTask}/> <Tuesday tasks={tasks} deleteTask={deleteTask}/> <Wednesday tasks={tasks} deleteTask={deleteTask}/> 
-            <Thursday tasks={tasks} deleteTask={deleteTask}/> <Friday tasks={tasks} deleteTask={deleteTask}/>
-            <Saturday tasks={tasks} deleteTask={deleteTask}/> <Sunday tasks={tasks} deleteTask={deleteTask}/>
+            <div className="column">
+                <Monday tasks={tasks} deleteTask={deleteTask}/> <Tuesday tasks={tasks} deleteTask={deleteTask}/> <Wednesday tasks={tasks} deleteTask={deleteTask}/>
+            </div>
+            <div className="column">
+                <Thursday tasks={tasks} deleteTask={deleteTask}/> <Friday tasks={tasks} deleteTask={deleteTask}/> <Saturday tasks={tasks} deleteTask={deleteTask}/>
+            </div>
+            <div className="sunday"><Sunday tasks={tasks} deleteTask={deleteTask}/></div>
+             
         </div>
     )
 }
