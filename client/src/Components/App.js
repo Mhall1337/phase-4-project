@@ -3,13 +3,21 @@ import { Route, Switch } from "react-router-dom";
 import ToDos from './ToDos';
 import Login from './Login';
 import NavBar from './NavBar';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SignUpForm from './SignUp';
 
 
 function App() {
 
   const [user, setUser] = useState(null)
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user)).catch(error => console.log(error));
+      }
+    });
+  }, []);
 
   if (!user) {
     return (

@@ -22,7 +22,6 @@ function ToDos() {
     }, [])
 
     function addTask(e) {
-        console.log(e.target.date_due.value)
         e.preventDefault()
         fetch("/to_dos", {
             method: "POST",
@@ -44,12 +43,20 @@ function ToDos() {
             }
         })
     }
+    function deleteTask(id){
+        console.log(id)
+        const updatedTasks = tasks.filter(task => task.id !== id)
+        setTasks(updatedTasks)
+        fetch(`/to_dos/${id}`,{
+            method: "DELETE"
+        })
+    }
     return (
-        <div className="todos">
+        <div className="todosContainer">
             <h3>Tasks For The Week</h3>
             <form onSubmit={addTask}>
                 <label>Task</label>
-                <input type="text" id="to_do" value={to_do} onChange={e => setTo_Do(e.target.value)}></input>
+                <input type="text" id="to_do" value={to_do} onChange={e => setTo_Do(e.target.value)} style={{width:250}}></input>
                 <label>Day:</label>
                 <select type="text" id="date_due" onChange={e => setDate_due(e.target.value)}>
                     <option value="Monday">Monday</option>
@@ -62,8 +69,9 @@ function ToDos() {
                 </select>
                 <input type="submit"></input>
             </form>
-            <Monday tasks={tasks} /> <Tuesday tasks={tasks}/> <Wednesday tasks={tasks}/> <Thursday tasks={tasks}/> <Friday tasks={tasks}/>
-            <Saturday tasks={tasks}/> <Sunday tasks={tasks}/>
+            <Monday tasks={tasks} deleteTask={deleteTask}/> <Tuesday tasks={tasks} deleteTask={deleteTask}/> <Wednesday tasks={tasks} deleteTask={deleteTask}/> 
+            <Thursday tasks={tasks} deleteTask={deleteTask}/> <Friday tasks={tasks} deleteTask={deleteTask}/>
+            <Saturday tasks={tasks} deleteTask={deleteTask}/> <Sunday tasks={tasks} deleteTask={deleteTask}/>
         </div>
     )
 }

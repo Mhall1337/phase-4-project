@@ -14,9 +14,13 @@ class ToDosController < ApplicationController
         todo.save
         render json: todo, status: :created
     end
-
+    def destroy
+        todo = ToDo.find_by(id: params[:id])
+        todo.destroy
+        head :no_content
+    end
     private
     def to_do_params
-        params.permit(:to_do, :date_due)
+        params.permit(:to_do, :date_due, :id)
     end
 end

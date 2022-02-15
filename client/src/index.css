@@ -20,13 +20,17 @@ code {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-radius: 5px;
 }
-.todos{
-  width: auto;
+.todosContainer{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
 }
 
 .home {
   text-align: center;
 }
 .home-image{
-  width: 500;
+  width: 500px;
 }

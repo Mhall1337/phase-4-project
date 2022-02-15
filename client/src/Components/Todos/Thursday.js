@@ -1,4 +1,4 @@
-function Thursday({tasks}){
+function Thursday({tasks, deleteTask}){
     let thursday = tasks.filter(task => task.date_due === "Thursday")
   
     return(
@@ -6,7 +6,7 @@ function Thursday({tasks}){
           <h1>Thursday</h1>
           <ul>{
             thursday.map((task, index)=> {
-            return<li key={index}>{task.to_do}</li>
+                return <li key={index}>{task.to_do}  <button onClick={()=>deleteTask(task.id)}>Delete Task</button></li> 
             })
             }</ul>
         </div>

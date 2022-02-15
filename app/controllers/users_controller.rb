@@ -11,10 +11,18 @@ class UsersController < ApplicationController
             render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
         end
     end
-    
+    def show
+        #GET/me
+        if @current_user
+            render json: @current_user
+        else
+            render json: {errors: "not authorized"}, status: :unauthorized
+        end
+    end
 
 
     private
+
     def user_params
         params.permit(:username, :password, :password_confirmation)
     end
