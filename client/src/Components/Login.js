@@ -55,7 +55,7 @@ function Login({setUser, user}){
   </div>
   )}
   else{
-    return <button onClick={handleLogout}>Log Out</button>
+    return <button onClick={handleLogout} className="logout">Log Out</button>
   }
 }
 export default Login

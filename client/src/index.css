@@ -13,7 +13,7 @@ code {
 }
 .day{
   background-color: white;
-  width: 300px;
+  width: 350px;
   padding: 12px;
   margin: 6px 6px 6px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -26,13 +26,7 @@ code {
   justify-content: center;
   align-items: center;
 }
-/* .column {
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
-} */
+
 .home {
   text-align: center;
 }
@@ -42,6 +36,7 @@ code {
 .todo_form{
   width: 100%;
   text-align: center;
+  padding: 20px;
 }
 .sunday{
   display: flex;
@@ -50,5 +45,8 @@ code {
   justify-content: center
 }
 #root > div > div.todosContainer > div.sunday > div{
-  width: 636px;
+  width: 736px;
 }
+/* .logout{
+  text-align: right;
+} */

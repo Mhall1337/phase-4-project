@@ -42,6 +42,8 @@ function ToDos() {
                 alert("Something went wrong")
             }
         })
+        setTo_Do("")
+        e.target.date_due.value = ""
     }
     function deleteTask(id){
         console.log(id)
@@ -53,7 +55,7 @@ function ToDos() {
     }
     return (
         <div className="todosContainer">
-            <h3 className="todo_header">Tasks For The Week</h3>
+            <h1 className="todo_header">Tasks For The Week</h1>
             <form onSubmit={addTask} className="todo_form">
                 <label>Task</label>
                 <input type="text" id="to_do" value={to_do} onChange={e => setTo_Do(e.target.value)} style={{width:250}}></input>
