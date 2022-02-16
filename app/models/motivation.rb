@@ -1,2 +1,0 @@
-class Motivation < ApplicationRecord
-end
