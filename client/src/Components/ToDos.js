@@ -46,7 +46,6 @@ function ToDos() {
         e.target.date_due.value = ""
     }
     function deleteTask(id){
-        console.log(id)
         const updatedTasks = tasks.filter(task => task.id !== id)
         setTasks(updatedTasks)
         fetch(`/to_dos/${id}`,{
