@@ -5,6 +5,7 @@ import Login from './Login';
 import NavBar from './NavBar';
 import React, { useState, useEffect } from "react";
 import SignUpForm from './SignUp';
+import Profile from './Profile';
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
     // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user)).catch(error => console.log(error));
+        r.json().then((user) => setUser([user])).catch(error => console.log(error));
       }
     });
   }, []);
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login setUser={setUser} user={user} />
+          </Route>
+          <Route path="/user">
+            <Profile user={user}/>
           </Route>
           <Route path="/">
             <Home setUser={setUser} user={user}/>

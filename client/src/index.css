@@ -50,3 +50,6 @@ code {
 /* .logout{
   text-align: right;
 } */
+#root > div > div.todosContainer > div.sunday > div > h1{
+  text-align: center;
+}

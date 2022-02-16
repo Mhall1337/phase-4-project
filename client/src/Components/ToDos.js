@@ -56,7 +56,7 @@ function ToDos() {
         <div className="todosContainer">
             <h1 className="todo_header">Tasks For The Week</h1>
             <form onSubmit={addTask} className="todo_form">
-                <label>Task</label>
+                <label>Task:</label>
                 <input type="text" id="to_do" value={to_do} onChange={e => setTo_Do(e.target.value)} style={{width:250}}></input>
                 <label>Day:</label>
                 <select type="text" id="date_due" onChange={e => setDate_due(e.target.value)}>
