@@ -4,13 +4,13 @@ import ToDos from './ToDos';
 import Login from './Login';
 import NavBar from './NavBar';
 import React, { useState, useEffect } from "react";
-import SignUpForm from './SignUp';
 import Profile from './Profile';
 
 
 function App() {
 
   const [user, setUser] = useState(null)
+  
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -24,14 +24,7 @@ function App() {
     return (
       <div>
         <NavBar />
-        <Switch >
-          <Route path="/login">
-            <Login setUser={setUser} user={user} />
-          </Route>
-          <Route path="/signup">
-            <SignUpForm setUser={setUser} />
-          </Route>
-        </Switch>
+        <Login setUser={setUser} user={user} />
       </div>
     )
   }
@@ -47,7 +40,7 @@ function App() {
             <Login setUser={setUser} user={user} />
           </Route>
           <Route path="/user">
-            <Profile user={user}/>
+            <Profile user={user} setUser={setUser}/>
           </Route>
           <Route path="/">
             <Home setUser={setUser} user={user}/>

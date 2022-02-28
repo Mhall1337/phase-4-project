@@ -14,7 +14,7 @@ function Login({setUser, user}){
     });
   }
 
-  function handleSubmit(e) {
+  function handleLogin(e) {
     e.preventDefault();
     fetch("/login", {
       method: "POST",
@@ -28,22 +28,20 @@ function Login({setUser, user}){
     }).then(r => {
       if(r.ok){
         return r.json().then(user =>  {
-          setUser(user)
+          setUser([user])
           setUsername("")
           setPassword("")
           history.push("/")
       })}
       else{
-        alert("Unauthorized credentials")
+        alert("Unauthorized username/password")
     }})
-    
-   
   }
-  if(!user){
+  
   return (
   <div>
       <h3>Log In</h3>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleLogin}>
       <label>Username</label>
       <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}></input>
       <label>Password:</label>
@@ -53,9 +51,6 @@ function Login({setUser, user}){
     <br></br>
     <div>Not A Current User?<button onClick={()=>history.push("/signup")}>Sign Up!</button></div>
   </div>
-  )}
-  else{
-    return <button onClick={handleLogout} className="logout">Log Out</button>
-  }
+  )
 }
 export default Login

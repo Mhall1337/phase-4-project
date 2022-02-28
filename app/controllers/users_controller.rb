@@ -5,7 +5,6 @@ class UsersController < ApplicationController
         #POST/signup
         user = User.create(user_params)
         if user.valid?
-            session[:user_id] = user.id
             render json: user, status: :created
         else
             render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
@@ -19,7 +18,15 @@ class UsersController < ApplicationController
             render json: {errors: "not authorized"}, status: :unauthorized
         end
     end
-
+    def destroy
+        user = @current_user
+        user.destroy
+        head :no_content
+    end 
+    def update
+        @current_user.update(:username => params[:username])
+        render json: @current_user
+    end
 
     private
 
