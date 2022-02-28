@@ -11,6 +11,7 @@ function ToDos() {
     const [tasks, setTasks] = useState([])
     const [to_do, setTo_Do] = useState("")
     const [date_due, setDate_due] = useState("")
+    const [search, setSearch] = useState("laundry")
 
     useEffect(() => {
         fetch('/to_dos')
@@ -52,6 +53,18 @@ function ToDos() {
             method: "DELETE"
         })
     }
+    function searchTodos(){
+        fetch("/search",{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },body: JSON.stringify({
+                search: search,
+        })}).then(r => r.json())
+        .then(r => console.log(r))
+    }
+    
+    searchTodos()
     return (
         <div className="todosContainer">
             <h1 className="todo_header">Tasks For The Week</h1>

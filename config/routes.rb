@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   #post "/to_dos", to: "to_dos#create"
   get "/me", to: "users#show"
+  post "/search", to: "to_dos#search"
   
 end

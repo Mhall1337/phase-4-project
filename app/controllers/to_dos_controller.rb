@@ -11,8 +11,15 @@ class ToDosController < ApplicationController
     def create
         user = User.find_by(id: session[:user_id])
         todo = user.to_dos.create(to_do_params)
-        todo.save
-        render json: todo, status: :created
+        if todo.valid?
+            render json: todo, status: :created
+        else
+            render json: {error: todo.errors.full_messages}, status: :unprocessable_entity
+        end
+    end
+    def search
+       search = ToDo.search(params[:search], @current_user)
+       render json: search
     end
     def destroy
         todo = ToDo.find_by(id: params[:id])
@@ -21,6 +28,6 @@ class ToDosController < ApplicationController
     end
     private
     def to_do_params
-        params.permit(:to_do, :date_due, :id)
+        params.permit(:to_do, :date_due, :id, :search)
     end
 end
