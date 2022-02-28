@@ -37,7 +37,7 @@ function Login({setUser, user}){
         alert("Unauthorized username/password")
     }})
   }
-  
+  if(!user){
   return (
   <div>
       <h3>Log In</h3>
@@ -51,6 +51,9 @@ function Login({setUser, user}){
     <br></br>
     <div>Not A Current User?<button onClick={()=>history.push("/signup")}>Sign Up!</button></div>
   </div>
-  )
+  )}
+  else{
+    return <button onClick={handleLogout} className="logout">Log Out</button>
+  }
 }
 export default Login

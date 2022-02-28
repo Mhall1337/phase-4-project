@@ -1,3 +1,5 @@
+
+
 function Home(){
     return (
         <div className="home">
@@ -6,6 +8,5 @@ function Home(){
         </div>
     )
 }
-
 
 export default Home;

@@ -1,6 +1,5 @@
 function Profile({ user, setUser }) {
 
-    console.log(user)
     function deleteUser() {
         fetch(`/users`, { method: "DELETE" }).then((r) => {
             if (r.ok) {

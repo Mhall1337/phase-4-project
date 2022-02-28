@@ -60,6 +60,7 @@ function ToDos() {
                 <input type="text" id="to_do" value={to_do} onChange={e => setTo_Do(e.target.value)} style={{width:250}}></input>
                 <label>Day:</label>
                 <select type="text" id="date_due" onChange={e => setDate_due(e.target.value)}>
+                    <option></option>
                     <option value="Monday">Monday</option>
                     <option value="Tuesday">Tuesday</option>
                     <option value="Wednesday">Wednesday</option>

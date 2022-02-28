@@ -7,6 +7,7 @@ import React, { useState, useEffect } from "react";
 import Profile from './Profile';
 
 
+
 function App() {
 
   const [user, setUser] = useState(null)
@@ -43,7 +44,7 @@ function App() {
             <Profile user={user} setUser={setUser}/>
           </Route>
           <Route path="/">
-            <Home setUser={setUser} user={user}/>
+            <Home />
           </Route>
         </Switch>
       </div>
